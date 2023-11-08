@@ -90,10 +90,10 @@ Route::group(['middleware' => ['role:user']], function () {
     });
 
     Route::controller(AlamatController::class)->group(function () {
-        Route::post('/wasoto/alamat', 'store')->name('user.wasoto.store');
+        Route::post('/wasoto/alamat', 'store')->name('user.alamat.wasoto.store');
     });
 
     Route::controller(TransaksiController::class)->group(function () {
-        Route::post('/wasoto/trasaksi', 'store')->name('user.wasoto.store');
+        Route::post('/wasoto/trasaksi', 'store')->name('user.transaksi.wasoto.store');
     });
 });

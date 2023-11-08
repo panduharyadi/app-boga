@@ -9,6 +9,7 @@ use App\Models\Alamat;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
@@ -45,20 +46,22 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //$file = $request->file('image');
-        //$filename = sprintf('%s_%s.%s', date('Y-m-d'), md5(microtime(true)), $file->extension());
-        //$image_path = $file->move('storage/transaksi', $filename);
+        $file = $request->file('image');
+        $filename = sprintf('%s_%s.%s', date('Y-m-d'), md5(microtime(true)), $file->extension());
+        $image_path = $file->move('storage/transaksi', $filename);
 
         Transaksi::create([
-            'user_id'     => $request->pemesan,
-            'menu_id'     => $request->pesanan,
-            'alamat_id'   => $request->alamat,
-            'promo_id'    => $request->promo,
-            'qty'         => $request->jumlah,
-            'total_price' => $request->total_price,
+            'user_id'     => Auth::user()->id,
+            'menu_id'     => $request->menuid,
+            'alamat_id'   => $request->alamatid,
+            'promo'       => $request->promo,
+            'price'       => $request->price,
+            'qty'         => $request->qty,
+            'total_price' => $request->price * $request->qty,
+            'bukti_tf'    => $image_path
         ]);
 
-        //return redirect()->route('admin.transaksi')->with(['success' => 'berhasil']);
+        return redirect()->route('user.wasoto.home')->with(['success' => 'berhasil']);
     }
 
     /**

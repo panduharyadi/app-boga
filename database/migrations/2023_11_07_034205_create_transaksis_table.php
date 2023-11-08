@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('menu_id');
             $table->foreignId('alamat_id');
-            $table->foreignId('promo_id')->nullable();
+            $table->string('promo');
+            $table->string('price');
             $table->string('qty');
             $table->string('total_price');
             $table->string('bukti_tf');

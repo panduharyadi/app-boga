@@ -17,6 +17,6 @@ class Menu extends Model
 
     public function transaksi()
     {
-        return $this->hasMany(Category::class);
+        return $this->hasMany(Transaksi::class);
     }
 }

@@ -51,7 +51,7 @@
 <div class="container mt-4">
   <div class="card alamat">
     <div class="card-body">
-      <form action="{{ route('user.wasoto.store') }}" method="POST">
+      <form action="{{ route('user.alamat.wasoto.store') }}" method="POST">
         @csrf
         <div class="mb-3">
           <label for="nohp" class="form-label">Nomor Handphone</label>
