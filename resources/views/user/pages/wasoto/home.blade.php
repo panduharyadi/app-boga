@@ -11,6 +11,32 @@
   .welcome, p {
     text-align: center; 
   }
+
+  .download {
+    width: 300px;
+    height: 150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+  }
+
+  .file {
+    padding: 50px;
+  }
+
+  .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: black;
+    border-radius: 50%;
+    text-align: center;
+    margin: auto;
+  }
 </style>
 
 @section('content')
@@ -42,8 +68,21 @@
 <div class="container mt-4">
   <div class="card">
     <div class="card-body">
+      <a href="">
+        <div class="profile">
+  
+        </div>
+      </a>
       <h2 class="welcome">Selamat Datang {{ Auth::user()->name }}</h2>
       <p>Selamat berbelanja!</p>
+      <div class="card download">
+        <div class="card-body ">
+          <div class="file-download">
+              <p class="file">File Download</p>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
 </div>
@@ -68,60 +107,82 @@
 </div>
 
 <div class="container mt-4">
-  <h2><b>Semua Menu</b></h2>
-</div>
-<div class="container">
-  <div class="owl-carousel owl-theme mb-3">
-    @foreach ($menu as $m)
-      <div class="item container">
-        <div class="card mt-4" style="width: 12rem;">
-          <img src="{{ asset($m->image) }}" class="card-img-top" alt="{{ $m->menu_name }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ $m->menu_name }}</h5>
-            <p>Rp. {{ $m->price }}</p>
-              <a href="{{ route('user.wasoto.home.checkout', $m->id) }}" class="icon-cart">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
-                  <path d="M13 17h-7v-14h-2"></path>
-                  <path d="M6 5l14 1l-.575 4.022m-4.925 2.978h-8.5"></path>
-                  <path d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
-                  <path d="M19 21v1m0 -8v1"></path>
-                </svg>
-              </a>
+  <h3><b>Semua Menu</b></h3>
+  <div class="owl-carousel owl-theme">
+      @foreach ($menu as $m)
+      <div class="item">
+              <div class="wsk-cp-product">
+                  <div class="wsk-cp-img">
+                      <img src="{{ asset($m->image) }}" alt=""> <!-- resolusi gambar harus 390 x 585 -->
+                  </div>
+                  <div class="wsk-cp-text">
+                      
+                      <div class="title-product">
+                          <h3>{{ $m->menu_name }}</h3>
+                      </div>
+                  </div>
+                  <div class="card-footer">
+                      <div class="wcf-left">
+                        <div class="container">
+                          <span>Rp{{ $m->price }}</span>
+                        </div>
+                      </div>
+                      <div class="wcf-right">
+                        <a href="{{ route('user.wasoto.home.checkout', $m->id) }}" class="buy-btn">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                            <path d="M13 17h-7v-14h-2"></path>
+                            <path d="M6 5l14 1l-.575 4.022m-4.925 2.978h-8.5"></path>
+                            <path d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                            <path d="M19 21v1m0 -8v1"></path>
+                          </svg>
+                        </a>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-    @endforeach
+      @endforeach
   </div>
 </div>
 
 <div class="container mt-4">
-  <h2><b>Best Seller</b></h2>
-</div>
-<div class="container">
-  <div class="owl-carousel owl-theme mb-3">
-    @foreach ($bests as $b)
-      <div class="item container">
-        <div class="card mt-4" style="width: 12rem;">
-          <img src="{{ asset($b->image) }}" class="card-img-top" alt="{{ $b->menu_name }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ $b->menu_name }}</h5>
-            <p>Rp. {{ $b->price }}</p>
-              <a href="{{ route('user.wasoto.home.checkout', $m->id) }}" class="icon-cart">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
-                  <path d="M13 17h-7v-14h-2"></path>
-                  <path d="M6 5l14 1l-.575 4.022m-4.925 2.978h-8.5"></path>
-                  <path d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
-                  <path d="M19 21v1m0 -8v1"></path>
-                </svg>
-              </a>
+  <h3><b>Best Seller</b></h3>
+  <div class="owl-carousel owl-theme">
+      @foreach ($bests as $b)
+      <div class="item">
+              <div class="wsk-cp-product">
+                  <div class="wsk-cp-img">
+                      <img src="{{ asset($b->image) }}" alt=""> <!-- resolusi gambar harus 390 x 585 -->
+                  </div>
+                  <div class="wsk-cp-text">
+                      
+                      <div class="title-product">
+                          <h3>{{ $b->menu_name }}</h3>
+                      </div>
+                  </div>
+                  <div class="card-footer">
+                      <div class="wcf-left">
+                          <span>Rp{{ $b->price }}</span>
+                      </div>
+                      <div class="wcf-right">
+                        <a href="{{ route('user.wasoto.home.checkout', $b->id) }}" class="buy-btn">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                            <path d="M13 17h-7v-14h-2"></path>
+                            <path d="M6 5l14 1l-.575 4.022m-4.925 2.978h-8.5"></path>
+                            <path d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                            <path d="M19 21v1m0 -8v1"></path>
+                          </svg>
+                        </a>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-    @endforeach
+      @endforeach
   </div>
 </div>
+
+
 @endsection

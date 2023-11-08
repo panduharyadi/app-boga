@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\user\HomeController;
 use App\Http\Controllers\admin\MenuController;
 use App\Http\Controllers\admin\PromoController;
 use App\Http\Controllers\user\WasotoController;
@@ -43,7 +42,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['role:admin']], function () {
 
     // Home
-    Route::controller(HomeController::class)->group(function () {
+    Route::controller(App\Http\Controllers\admin\HomeController::class)->group(function () {
         Route::get('/admin/home', 'index')->name('admin.home');
     });
 
@@ -84,7 +83,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 });
 
 Route::group(['middleware' => ['role:user']], function () {
-    Route::controller(HomeController::class)->group(function () {
+    Route::controller(App\Http\Controllers\user\HomeController::class)->group(function () {
         Route::get('/wasoto/home', 'index')->name('user.wasoto.home');
         Route::get('/wasoto/checkout/{id}', 'create')->name('user.wasoto.home.checkout');
     });

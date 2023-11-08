@@ -20,7 +20,10 @@ class WasotoController extends Controller
         $promo = Promo::all();
         $menus = Menu::all();
         $best  = Menu::where('category_id', 1)->get();
-        return view('user.pages.wasoto.wasoto', compact('menus', 'promo', 'best'));
+        $fav = Menu::where('category_id', 2)->get();
+        $aLaCarte = Menu::where('category_id', 4)->get();
+        $drink = Menu::where('category_id', 3)->get();
+        return view('user.pages.wasoto.wasoto', compact('menus', 'promo', 'best', 'fav', 'aLaCarte', 'drink'));
     }
 
     /**

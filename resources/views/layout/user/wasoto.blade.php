@@ -37,6 +37,7 @@
 
   @include('user.components.footer')
   <!-- jQery -->
+  @include('sweetalert::alert')
   @include('user.components.js')
 
 

@@ -10,6 +10,7 @@ use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TransaksiController extends Controller
 {
@@ -60,6 +61,8 @@ class TransaksiController extends Controller
             'total_price' => $request->price * $request->qty,
             'bukti_tf'    => $image_path
         ]);
+
+        Alert::success('Sukses', 'Transaksi berhasil!')->persistent(true)->autoClose(15000);
 
         return redirect()->route('user.wasoto.home')->with(['success' => 'berhasil']);
     }

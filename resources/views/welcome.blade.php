@@ -1,4 +1,580 @@
+
 <!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Delfood</title>
+    @include('user.components.css')
+    <style>
+        .btn-wasoto {
+        display: flex;
+        width: 221.25px;
+        height: 50px;
+        padding: 11px -60px 12px 55.2px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 45px;
+        border: 1px solid #d2ab77;
+        background: #d2ab77;
+    }
+
+    .btn-text {
+        display: flex;
+        width: 167.53px;
+        height: 23px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #000;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 5px; 
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    img {
+        border-radius: 45px;
+    }
+    
+    .img-promo {
+        border-radius: 45px;
+        box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.50);
+    }
+    </style>
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Alkindi Boga
+            </span>
+          </a>
+          <div class="" id="">
+            <div class="User_option">
+              <a href="{{ route('login') }}">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span>Login</span>
+              </a>
+              <form class="form-inline ">
+                <input type="search" placeholder="Search" />
+                <button class="btn  nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <img src="{{ asset('user/images/menu.png') }}" alt="">
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="testimonial.html">Testimonial</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="container ">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="detail-box">
+              <h1>
+                Selamat datang di Alkindi Boga
+              </h1>
+              <p>
+                Alkindi Boga Indonesia lahir dari permintaan masyarakat Indonesia dan semangat untuk melestarikan makanan khas Indonesia dengan nilai autentik, bersih, dan nikmat
+              </p>
+            </div>
+            <div class="find_container ">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <form>
+                      <div class="form-row ">
+                        <div class="form-group col-lg-3">
+                          <div class="btn-wasoto">
+                              <a type="submit" href="{{ route('user.wasoto') }}" class="btn-text" style="color: black;">Wasoto by Kinditto</a>
+                          </div>
+                        </div>
+                        <div class="form-group col-lg-3">
+                          <div class="btn-wasoto">
+                              <a type="submit" class="btn-text">Kafe Kinditto</a>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider_container">
+        <div class="item">
+          <div class="img-box">
+            <img src="{{ asset('user/images/menu/bbq(1).png') }}" alt="" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="img-box">
+            <img src="{{ asset('user/images/menu/ng(1).png') }}" alt="" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="img-box">
+            <img src="{{ asset('user/images/menu/njab(1).png') }}" alt="" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="img-box">
+            <img src="{{ asset('user/images/menu/njar(1).png') }}" alt="" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="img-box">
+            <img src="{{ asset('user/images/menu/rbe(1).png') }}" alt="" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="img-box">
+            <img src="{{ asset('user/images/menu/somed(1).png') }}" alt="" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="img-box">
+            <img src="{{ asset('user/images/menu/sopmedan(1).png') }}" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- recipe section -->
+  <section class="recipe_section layout_padding-top">
+    <div class="container">
+    <div class="heading_container heading_center">
+        <h2>
+        Pilih tempat favoritmu
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box">
+              <div class="img-box">
+              <img src="{{ asset('user/images/wasoto(1).jpeg') }}" class="box-img" alt="">
+              </div>
+              <div class="detail-box">
+              <h4>
+                  Wasoto by Kinditto
+              </h4>
+              </div>
+          <div class="btn-box">
+        <a href="#">
+        Selengkapnya
+        </a>
+          </div>
+    </div>
+        </div>
+        <div class="col-sm-6 col-md-4 mx-auto">
+        <div class="box">
+            <div class="img-box">
+            <img src="{{ asset('user/images/kafekindito(1).jpeg') }}" class="box-img" alt="">
+            </div>
+            <div class="detail-box">
+            <h4>
+                Kafe Kinditto
+            </h4>
+            </div>
+        <div class="btn-box">
+        <a href="">
+        Selengkapnya
+        </a>
+    </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+  <!-- end recipe section -->
+
+  <!-- app section -->
+
+  <section class="app_section" hidden>
+    <div class="container">
+      <div class="col-md-9 mx-auto">
+        <div class="row">
+          <div class="col-md-7 col-lg-8">
+            <div class="detail-box">
+              <h2>
+                <span> Get the</span> <br>
+                Delfood App
+              </h2>
+              <p>
+                long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The poin
+              </p>
+              <div class="app_btn_box">
+                <a href="" class="mr-1">
+                  <img src="images/google_play.png" class="box-img" alt="">
+                </a>
+                <a href="">
+                  <img src="images/app_store.png" class="box-img" alt="">
+                </a>
+              </div>
+              <a href="" class="download_btn">
+                Download Now
+              </a>
+            </div>
+          </div>
+          <div class="col-md-5 col-lg-4">
+            <div class="img-box">
+              <img src="images/mobile.png" class="box-img" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- end app section -->
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="col-md-11 col-lg-10 mx-auto">
+        <div class="heading_container heading_center">
+          <h2>
+            Tentang Kami
+          </h2>
+        </div>
+        <div class="box">
+          <div class="col-md-7 mx-auto">
+            <div class="img-box">
+              <img src="{{ asset('user/images/logoboga.png') }}" class="box-img" alt="">
+            </div>
+          </div>
+          <div class="detail-box">
+            <p style="text-align: justify;">
+              Alkindi Boga Indonesia berdiri pada tahun 2020. Alkindi Boga Indonesia terdiri dari Wasoto by Kinditto dan Kafe Kinditto.
+              Alkindi Boga Indonesia lahir dari permintaan masyarakat Indonesia dan semangat untuk melestarikan makanan khas Indonesia dengan nilai autentik,
+              bersih dan nikmat. Alkindi Boga Indonesia menggambarkan kekayaan makanan khas.
+              <br><br>
+              Wasoto by Kinditto dan Kafe Kinditto menyediakan menu yang autentik, seperti soto Medan, Nasi Liwet, dan Nasi Goreng Melayu. 
+              Seiring perkembangan waktu, kemudia kami menyediakan variasi lain yang enaknya juga bikin ketagihan, seperti Ayam retak, Chicken Steak, Omelet, dan aneka cemmilan, kopi, juga non kopi
+              Alkindi Boga Indonesia juga bertekad untuk meyakinkan para konsumen bahwa semua menu di Wasoto by Kinditto dan Kafe Kinditto tidak mengandung Monosodium Glutamat(MSG).
+              Semua bumbu dan rasa dari Wasoto by Kinditto dan Kafe Kinditto tidak akan pernah mengandung MSG.
+              <br><br>
+              <!--Sebagian besar komposisi bahan dan bumbu terdiri dari rempah-rempah alami pilihan yang membuat lezatnya Wasoto by Kinditto dan Kafe Kinditto tidak membuat kepala menjadi pusing-->
+              <!--atau bahaya penyakit di kemudia hari.-->
+      
+              Hal ini menandakan semua menu makanan Wasoto by kinditto dan Kafe Kinditto aman, ramah dilidah, dan juga sangat aman untuk kesehatan.
+              
+              Wasoto by Kinditto dan Kafe Kinditto menjadi tempat bersantap favorit bagi masyarakat Indonesia, khususnya mahasiswa, pelajar, dan keluarga.
+              Dengan mengusung suasana restoran yang autentik, nyaman dan dilengkapi berbagai fasilitas membuat setiap pengunjung makin betah dan selalu ingin kembali.
+              
+              Nikmati momen istimewa berkumpul bersama orang tersayang bersama Wasoto by kinditto dan Kafe Kinditto
+            </p>
+            <a href="">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- news section -->
+
+  <section class="client_section layout_padding">
+    <div class="container">
+      <div class="col-md-11 col-lg-10 mx-auto">
+        <div class="heading_container heading_center">
+          <h2>
+            Promo Terbaru
+          </h2>
+        </div>
+        <div class="row">
+        <div class="col-md-6">
+          <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="detail-box">
+                  <div class="img-promo img-box">
+                    <img src="{{ asset('user/images/n1.jpg') }}" class="box-img" alt="">
+                  </div>
+                  <h4 class="mt-4">
+                    Wasoto by Kindito
+                  </h4>
+                </div>
+              </div>
+              <div class="carousel-item ">
+                <div class="detail-box">
+                  <div class="img-promo img-box">
+                    <img src="{{ asset('user/images/n2.jpg') }}" class="box-img" alt="">
+                  </div>
+                  <h4 class="mt-4">
+                    Wasoto by Kindito2
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev d-none" href="#customCarousel1" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="detail-box">
+                  <div class="img-promo img-box">
+                    <img src="{{ asset('user/images/n1.jpg') }}" class="box-img" alt="">
+                  </div>
+                  <h4 class="mt-4">
+                    Kafe Kindito
+                  </h4>
+                </div>
+              </div>
+              <div class="carousel-item ">
+                <div class="detail-box">
+                  <div class="img-promo img-box">
+                    <img src="{{ asset('user/images/n2.jpg') }}" class="box-img" alt="">
+                  </div>
+                  <h4 class="mt-4">
+                    Kafe Kindito2
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev d-none" href="#customCarousel1" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end news section -->
+
+  <!-- client section -->
+
+  <section class="client_section layout_padding">
+    <div class="container">
+      <div class="col-md-11 col-lg-10 mx-auto">
+        <div class="heading_container heading_center">
+          <h2>
+            Testimonial
+          </h2>
+        </div>
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="detail-box">
+                <h4>
+                  Ardha Safitri
+                </h4>
+                <p>
+                  Sering pesen disini ga pernah kecewa deh sm makananny, SOP aym sih yg paling sering dipesen disini mantul soalny ðŸ˜…
+                </p>
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="detail-box">
+                <h4>
+                  Wanda Nurisna
+                </h4>
+                <p>
+                  Beberapa kali makan disini belum pernah ngerasa ga cocok sama rasa makanannya, tiap kali mau makan soto untuk dine in dengan vibes yg tenang dan ruangan yg adem selalu melipir ke wasoto
+                </p>
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="detail-box">
+                <h4>
+                  Hod Susanto
+                </h4>
+                <p>
+                  Nasi liwet daun jeruk dan ayam retaknya enak, sambalnya enak cuma kurang banyak. Harga standar makanan kekinian.
+                </p>
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev d-none" href="#customCarousel1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+  <div class="footer_container" style="margin: 20px 0 0 10px;">
+    <!-- info section -->
+    <section class="info_section ">
+      <div class="container">
+        <h4>Kontak</h4>
+        <p style="margin-top: 4px;"> <i class="fa fa-phone" aria-hidden="true"></i> 08119109430</p>
+  
+        <p><b>Kafe Kinditto</b>, <br> Jl. Wr. Sila, Cipedak, Kec. Jagakarsa, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12630</p>
+        <div class="contact_box">
+          {{-- maps --}}
+          <div class="mapouter">
+            <div class="gmap_canvas" style="border-radius: 20px;">
+              <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=500&amp;height=300&amp;hl=en&amp;q=Kafe Kinditto  Jl. Wr. Sila, Cipedak, Kec. Jagakarsa, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12630&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+              
+              </iframe>
+              <a href="https://connectionsgame.org/">Connections NYT</a>
+            </div>
+            <style>.mapouter{position:relative;text-align:right;width:100%;height:300px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:300px;}.gmap_iframe {height:300px!important;}</style>
+          </div>
+        </div>
+        <p style="margin-top: 20px;"><b>Wasoto by Kinditto</b>, <br> Jl. Siliwangi, Depok, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16431</p>
+        <div class="contact_box">
+          <div class="mapouter">
+            <div class="gmap_canvas" style="border-radius: 20px;">
+              <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=500&amp;height=300&amp;hl=en&amp;q=wasoto&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+              
+              </iframe>
+              <a href="https://connectionsgame.org/">Connections NYT</a>
+            </div>
+            <style>.mapouter{position:relative;text-align:right;width:100%;height:300px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:300px;}.gmap_iframe {height:300px!important;}</style>
+          </div>
+        </div>
+        <div class="info_links">
+          <ul>
+            <li class="active">
+              <a href="index.html">
+                Beranda
+              </a>
+            </li>
+            <li class="active">
+              <a href="index.html">
+                Menu
+              </a>
+            </li>
+            <li>
+              <a href="about.html">
+                Tentang Kami
+              </a>
+            </li>
+            <li>
+              <a class="" href="blog.html">
+                Wasoto by Kinditto
+              </a>
+            </li>
+            <li>
+              <a class="" href="testimonial.html">
+                Kafe Kinditto
+              </a>
+            </li>
+            <li>
+              <a class="" href="testimonial.html">
+                Hubungi Kami
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="social_box">
+          <a href="">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" height="0.875em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+          </a>
+          <a href="">
+            <i class="fa fa-youtube" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- end info_section -->
+  
+  
+    <!-- footer section -->
+    <footer class="footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">PT Alkindi <b>Boga Indonesia</b></a><br>
+          <!--Distributed By: <a href="https://themewagon.com/">ThemeWagon</a>-->
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+  
+  </div>
+  <!-- jQery -->
+  @include('user.components.js')
+</body>
+
+</html>
+
+
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -129,4 +705,4 @@
             </div>
         </div>
     </body>
-</html>
+</html> --}}

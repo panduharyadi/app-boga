@@ -17,7 +17,7 @@
             <span class="hide-menu">Home</span>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('admin.home') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-layout-dashboard"></i>
               </span>
@@ -57,7 +57,7 @@
               <span class="hide-menu">Transaksi</span>
             </a>
           </li>
-          <li class="sidebar-item">
+          <li class="sidebar-item" hidden>
             <a class="sidebar-link" href="{{ route('admin.alamat') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-address-book"></i>
